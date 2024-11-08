@@ -6,7 +6,6 @@
 
 // constants
 #define SHORT_COMBO_TERM 6
-
 // layers
 enum layers {
     ALPHA_LAYER,

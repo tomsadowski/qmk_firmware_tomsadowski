@@ -85,7 +85,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
 
         case LAYOUT_HOME:
             if (record->event.pressed)
-                return press_home();
+                press_home();
             return false;
 
         case RELEASE_GATE:
@@ -101,7 +101,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
 
         case CAPS_ON:
             if (record->event.pressed)
-                return press_caps_on();
+                caps_word_on();
             return false;
 
         default: return true;
