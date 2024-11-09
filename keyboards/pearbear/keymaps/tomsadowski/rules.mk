@@ -8,6 +8,7 @@ GRAVE_ESC_ENABLE = no
 MAGIC_ENABLE = no
 LEADER_ENABLE = no
 REPEAT_KEY_ENABLE = no
+
 # enabled features
 LTO_ENABLE = yes
 COMBO_ENABLE = yes
