@@ -7,175 +7,187 @@
 #include "quantum_keycodes.h"
 #include "process_combo.h"
 
-//    |___|   |XXX|   |XXX|   |___|   |___|    ------------
-const uint16_t PROGMEM          tab_combo_l[] = {KC_C,    KC_H,     COMBO_END};
-const uint16_t PROGMEM        shift_combo_l[] = {KC_S,    KC_R,     COMBO_END};
-const uint16_t PROGMEM      caps_on_combo_l[] = {KC_F,    KC_L,     COMBO_END};
+//                                 . 3 3 . .          . . 3 3 .
+const uint16_t PROGMEM    tab_cmb_l[] = {KC_C,    KC_H,    COMBO_END};
+const uint16_t PROGMEM    tab_cmb_r[] = {KC_W,    KC_P,    COMBO_END};
+//                           . 2 2 . .          . . 2 2 .
+const uint16_t PROGMEM  shift_cmb_l[] = {KC_S,    KC_R,    COMBO_END};
+const uint16_t PROGMEM  shift_cmb_r[] = {KC_I,    KC_O,    COMBO_END};
+//                           . 1 1 . .          . . 1 1 .
+const uint16_t PROGMEM   caps_cmb_l[] = {KC_F,    KC_L,    COMBO_END};
+const uint16_t PROGMEM   home_cmb_r[] = {KC_M,    KC_G,    COMBO_END};
+//                           3 . . 3 .          . 3 . . 3
+const uint16_t PROGMEM    alt_cmb_l[] = {KC_X,    KC_B,    COMBO_END};
+const uint16_t PROGMEM    alt_cmb_r[] = {KC_Y,    KC_J,    COMBO_END};
+//                           2 . . 2 .          . 2 . . 2
+const uint16_t PROGMEM   ctrl_cmb_l[] = {KC_A,    KC_T,    COMBO_END};
+const uint16_t PROGMEM   ctrl_cmb_r[] = {KC_E,    KC_N,    COMBO_END};
+//                           1 . . 1 .          . 1 . . 1
+const uint16_t PROGMEM  rgate_cmb_l[] = {KC_X,    KC_Q,    COMBO_END};
+const uint16_t PROGMEM  rgate_cmb_r[] = {KC_Z,    KC_J,    COMBO_END};
+//                           3 . . . 3          3 . . . 3
+const uint16_t PROGMEM    gui_cmb_l[] = {KC_T,    KC_X,    COMBO_END};
+const uint16_t PROGMEM    gui_cmb_r[] = {KC_E,    KC_J,    COMBO_END};
+//                           2 . . . 2          2 . . . 2
+const uint16_t PROGMEM  arrow_cmb_l[] = {KC_A,    KC_D,    COMBO_END};
+const uint16_t PROGMEM   nmbr_cmb_r[] = {KC_U,    KC_N,    COMBO_END};
+//                           3 . . 2 .          . 2 . . 3
+const uint16_t PROGMEM  mouse_cmb_l[] = {KC_V,    KC_D,    COMBO_END};
+const uint16_t PROGMEM  mouse_cmb_r[] = {KC_U,    KC_K,    COMBO_END};
+//                           2 . . 1 .          . 1 . . 2
+const uint16_t PROGMEM game3d_cmb_l[] = {KC_DOT,  KC_N,    COMBO_END};
+const uint16_t PROGMEM game2d_cmb_r[] = {KC_A,    KC_COMM, COMBO_END};
+//                           . . . 3 2          2 3 . . .
+const uint16_t PROGMEM    esc_cmb_l[] = {KC_B,    KC_COMM, COMBO_END};
+const uint16_t PROGMEM  enter_cmb_r[] = {KC_DOT,  KC_Y,    COMBO_END};
 
-//    |XXX|   |___|   |___|   |XXX|   |___|    ------------
-const uint16_t PROGMEM          alt_combo_l[] = {KC_X,    KC_B,     COMBO_END};
-const uint16_t PROGMEM      control_combo_l[] = {KC_A,    KC_T,     COMBO_END};
-const uint16_t PROGMEM   left_mouse_combo_l[] = {KC_V,    KC_D,     COMBO_END};
-
-//    |XXX|   |___|   |___|   |___|   |XXX|    ------------
-const uint16_t PROGMEM release_gate_combo_l[] = {KC_X,    KC_Q,     COMBO_END};
-const uint16_t PROGMEM       game3d_combo_l[] = {KC_DOT,  KC_N,     COMBO_END};
-
-//    |111|   |___|   |___|   |222|   |___|    ------------
-const uint16_t PROGMEM          gui_combo_l[] = {KC_T,    KC_X,     COMBO_END};
-
-//    |222|   |___|   |___|   |333|   |___|    ------------
-const uint16_t PROGMEM  left_number_combo_l[] = {KC_A,    KC_D,     COMBO_END};
-
-//    |___|   |___|   |___|   |111|   |222|    -------------
-const uint16_t PROGMEM       escape_combo_l[] = {KC_B,    KC_COMMA, COMBO_END};
-
-//------------    |___|   |___|   |XXX|   |XXX|   |___|
-const uint16_t PROGMEM          tab_combo_r[] = {KC_W,    KC_P,     COMBO_END};
-const uint16_t PROGMEM        shift_combo_r[] = {KC_I,    KC_O,     COMBO_END};
-const uint16_t PROGMEM         home_combo_r[] = {KC_M,    KC_G,     COMBO_END};
-
-//------------    |___|   |XXX|   |___|   |___|   |XXX|
-const uint16_t PROGMEM          alt_combo_r[] = {KC_Y,    KC_J,     COMBO_END};
-const uint16_t PROGMEM      control_combo_r[] = {KC_E,    KC_N,     COMBO_END};
-const uint16_t PROGMEM        mouse_combo_r[] = {KC_U,    KC_K,     COMBO_END};
-
-//------------    |XXX|   |___|   |___|   |___|   |XXX|
-const uint16_t PROGMEM release_gate_combo_r[] = {KC_Z,    KC_J,     COMBO_END};
-const uint16_t PROGMEM       game2d_combo_r[] = {KC_A,    KC_COMM,  COMBO_END};
-
-//------------    |___|   |222|   |___|   |___|   |111|
-const uint16_t PROGMEM          gui_combo_r[] = {KC_E,    KC_J,     COMBO_END};
-
-//------------    |___|   |333|   |___|   |___|   |222|
-const uint16_t PROGMEM       number_combo_r[] = {KC_U,    KC_N,     COMBO_END};
-
-//------------    |222|   |111|   |___|   |___|   |___|
-const uint16_t PROGMEM        enter_combo_r[] = {KC_DOT,  KC_Y,     COMBO_END};
-
-enum combos {
-  /*   |___|   |XXX|   |XXX|   |___|   |___|      |___|   |___|   |XXX|   |XXX|   |___|   */
-                    TAB_COMBO_L,                               TAB_COMBO_R,
-                    SHIFT_COMBO_L,                             SHIFT_COMBO_R,
-                    CAPS_ON_COMBO_L,                           HOME_COMBO_R,
-  /*   |XXX|   |___|   |___|   |XXX|   |___|      |___|   |XXX|   |___|   |___|   |XXX|   */
-                    ALT_COMBO_L,                               ALT_COMBO_R,
-                    CONTROL_COMBO_L,                           CONTROL_COMBO_R,
-                    LEFT_MOUSE_COMBO_L,                        MOUSE_COMBO_R,
-  /*   |XXX|   |___|   |___|   |___|   |XXX|      |XXX|   |___|   |___|   |___|   |XXX|   */
-                    RELEASE_GATE_COMBO_L,                      RELEASE_GATE_COMBO_R,
-                    GAME3D_COMBO_L,                            GAME2D_COMBO_R,
-  /*   |111|   |___|   |___|   |222|   |___|      |___|   |222|   |___|   |___|   |111|   */
-                    GUI_COMBO_L,                               GUI_COMBO_R,
-  /*   |222|   |___|   |___|   |333|   |___|      |___|   |333|   |___|   |___|   |222|   */
-                    LEFT_NUMBER_COMBO_L,                       NUMBER_COMBO_R,
-  /*   |___|   |___|   |___|   |111|   |222|      |222|   |111|   |___|   |___|   |___|   */
-                    ESCAPE_COMBO_L,                            ENTER_COMBO_R,
+enum combos
+{
+    // . 3 3 . .     . . 3 3 .
+    TAB_CMB_L,     TAB_CMB_R,
+    // . 2 2 . .     . . 2 2 .
+    SHIFT_CMB_L,   SHIFT_CMB_R,
+    // . 1 1 . .     . . 1 1 .
+    CAPS_CMB_L,    HOME_CMB_R,
+    // 3 . . 3 .     . 3 . . 3
+    ALT_CMB_L,     ALT_CMB_R,
+    // 2 . . 2 .     . 2 . . 2
+    CTRL_CMB_L,    CTRL_CMB_R,
+    // 1 . . 1 .     . 1 . . 1
+    MOUSE_CMB_L,   MOUSE_CMB_R,
+    // 3 . . . 3     3 . . . 3
+    RGATE_CMB_L,   RGATE_CMB_R,
+    // 2 . . . 2     2 . . . 2
+    GAME3D_CMB_L,  GAME2D_CMB_R,
+    // 3 . . 2 .     . 2 . . 3
+    GUI_CMB_L,     GUI_CMB_R,
+    // 2 . . 1 .     . 1 . . 2
+    ARROW_CMB_L,   NMBR_CMB_R,
+    // . . . 3 2     2 3 . . .
+    ESC_CMB_L,     ENTER_CMB_R,
 };
-enum custom_keycodes {
-    RELEASE_GATE = SAFE_RANGE,
+
+enum custom_keycodes
+{
+    RGATE = SAFE_RANGE,
     LAYOUT_HOME,
     CAPS_ON
 };
-enum layers {
-    ALPHA_LAYER,
-    NUMBER_LAYER,
-    MOUSE_LAYER,
-    LEFT_NUMBER_LAYER,
-    LEFT_MOUSE_LAYER,
-    GAME2D_LAYER,
-    GAME3D_LAYER,
-    MOMENTARY_ALPHA_LAYER,
-    MOMENTARY_MOUSEALPHA_LAYER,
-    MOMENTARY_NUMBER_LAYER,
-    MOMENTARY_MOUSE_LAYER
-};
-combo_t key_combos[] = {
-                       //    |___|   |XXX|   |XXX|   |___|   |___|    ------------
-                        [TAB_COMBO_L]          = COMBO(         tab_combo_l,                KC_TAB),
-                        [SHIFT_COMBO_L]        = COMBO(       shift_combo_l,         KC_LEFT_SHIFT),
-                        [CAPS_ON_COMBO_L]      = COMBO(     caps_on_combo_l,               CAPS_ON),
 
-                       //    |XXX|   |___|   |___|   |XXX|   |___|    ------------
-                        [ALT_COMBO_L]          = COMBO(         alt_combo_l,           KC_LEFT_ALT),
-                        [CONTROL_COMBO_L]      = COMBO(     control_combo_l,          KC_LEFT_CTRL),
-                        [LEFT_MOUSE_COMBO_L]   = COMBO(  left_mouse_combo_l,  TO(LEFT_MOUSE_LAYER)),
-
-                       //    |XXX|   |___|   |___|   |___|   |XXX|    ------------
-                        [RELEASE_GATE_COMBO_L] = COMBO(release_gate_combo_l,          RELEASE_GATE),
-                        [GAME3D_COMBO_L]       = COMBO(      game3d_combo_l,      TO(GAME3D_LAYER)),
-
-                       //    |111|   |___|   |___|   |222|   |___|    ------------
-                        [GUI_COMBO_L]          = COMBO(         gui_combo_l,           KC_LEFT_GUI),
-
-                       //    |222|   |___|   |___|   |333|   |___|    ------------
-                        [LEFT_NUMBER_COMBO_L]  = COMBO( left_number_combo_l, TO(LEFT_NUMBER_LAYER)),
-
-                       //    |___|   |___|   |___|   |111|   |222|    -------------
-                        [ESCAPE_COMBO_L]       = COMBO(      escape_combo_l,             KC_ESCAPE),
-
-                       //------------    |___|   |___|   |XXX|   |XXX|   |___|
-                        [TAB_COMBO_R]          = COMBO(         tab_combo_r,                KC_TAB),
-                        [SHIFT_COMBO_R]        = COMBO(       shift_combo_r,        KC_RIGHT_SHIFT),
-                        [HOME_COMBO_R]         = COMBO(        home_combo_r,           LAYOUT_HOME),
-
-                       //------------    |___|   |XXX|   |___|   |___|   |XXX|
-                        [ALT_COMBO_R]          = COMBO(         alt_combo_r,          KC_RIGHT_ALT),
-                        [CONTROL_COMBO_R]      = COMBO(     control_combo_r,         KC_RIGHT_CTRL),
-                        [MOUSE_COMBO_R]        = COMBO(       mouse_combo_r,       TO(MOUSE_LAYER)),
-
-                       //------------    |XXX|   |___|   |___|   |___|   |XXX|
-                        [RELEASE_GATE_COMBO_R] = COMBO(release_gate_combo_r,          RELEASE_GATE),
-                        [GAME2D_COMBO_R]       = COMBO(      game2d_combo_r,      TO(GAME2D_LAYER)),
-
-                       //------------    |___|   |222|   |___|   |___|   |111|
-                        [GUI_COMBO_R]          = COMBO(         gui_combo_r,          KC_RIGHT_GUI),
-                       //------------    |___|   |333|   |___|   |___|   |222|
-                        [NUMBER_COMBO_R]       = COMBO(      number_combo_r,      TO(NUMBER_LAYER)),
-
-                       //------------    |222|   |111|   |___|   |___|   |___|
-                        [ENTER_COMBO_R]        = COMBO(       enter_combo_r,              KC_ENTER),
+enum layers
+{
+    ALPHA_LYR,
+    NMBR_LYR,
+    MOUSE_LYR_R,
+    ARROW_LYR,
+    MOUSE_LYR_L,
+    GAME2D_LYR,
+    GAME3D_LYR,
+    ALPHA_FROM_NMBR_LYR,
+    ALPHA_FROM_MOUSE_LYR,
+    NMBR_FROM_OTHER_LYR,
+    MOUSE_FROM_OTHER_LYR
 };
 
-// functions
+combo_t key_combos[] =
+{
+    // . 3 3 . .     . . 3 3 .
+    [TAB_CMB_L]    = COMBO(   tab_cmb_l, KC_TAB),
+    [TAB_CMB_R]    = COMBO(   tab_cmb_r, KC_TAB),
+    // . 2 2 . .     . . 2 2 .
+    [SHIFT_CMB_L]  = COMBO( shift_cmb_l, KC_LEFT_SHIFT),
+    [SHIFT_CMB_R]  = COMBO( shift_cmb_r, KC_RIGHT_SHIFT),
+    // . 1 1 . .     . . 1 1 .
+    [CAPS_CMB_L]   = COMBO(  caps_cmb_l, CAPS_ON),
+    [HOME_CMB_R]   = COMBO(  home_cmb_r, LAYOUT_HOME),
+    // 3 . . 3 .     . 3 . . 3
+    [ALT_CMB_L]    = COMBO(   alt_cmb_l, KC_LEFT_ALT),
+    [ALT_CMB_R]    = COMBO(   alt_cmb_r, KC_RIGHT_ALT),
+    // 2 . . 2 .     . 2 . . 2
+    [CTRL_CMB_L]   = COMBO(  ctrl_cmb_l, KC_LEFT_CTRL),
+    [CTRL_CMB_R]   = COMBO(  ctrl_cmb_r, KC_RIGHT_CTRL),
+    // 1 . . 1 .     . 1 . . 1
+    [MOUSE_CMB_L]  = COMBO( mouse_cmb_l, TO(MOUSE_LYR_L)),
+    [MOUSE_CMB_R]  = COMBO( mouse_cmb_r, TO(MOUSE_LYR_R)),
+    // 3 . . . 3     3 . . . 3
+    [RGATE_CMB_L]  = COMBO( rgate_cmb_l, RGATE),
+    [RGATE_CMB_R]  = COMBO( rgate_cmb_r, RGATE),
+    // 2 . . . 2     2 . . . 2
+    [GAME3D_CMB_L] = COMBO(game3d_cmb_l, TO(GAME3D_LYR)),
+    [GAME2D_CMB_R] = COMBO(game2d_cmb_r, TO(GAME2D_LYR)),
+    // 3 . . 2 .     . 2 . . 3
+    [GUI_CMB_L]    = COMBO(   gui_cmb_l, KC_LEFT_GUI),
+    [GUI_CMB_R]    = COMBO(   gui_cmb_r, KC_RIGHT_GUI),
+    // 2 . . 1 .     . 1 . . 2
+    [ARROW_CMB_L]  = COMBO( arrow_cmb_l, TO(ARROW_LYR)),
+    [NMBR_CMB_R]   = COMBO(  nmbr_cmb_r, TO(NMBR_LYR)),
+    // . . . 3 2     2 3 . . .
+    [ESC_CMB_L]    = COMBO(   esc_cmb_l, KC_ESCAPE),
+    [ENTER_CMB_R]  = COMBO( enter_cmb_r, KC_ENTER),
 
-// Game layers let the user press combos without triggering the default combo-functionality
-bool combo_should_trigger(uint16_t combo_index, combo_t* combo, uint16_t keycode, keyrecord_t* record) {
-    if (layer_state_is(GAME2D_LAYER) || layer_state_is(GAME3D_LAYER)) {
-        switch (combo_index) {
-            case HOME_COMBO_R:
-            case LEFT_MOUSE_COMBO_L:
-            case MOUSE_COMBO_R:
-            case LEFT_NUMBER_COMBO_L:
-            case NUMBER_COMBO_R:
-            case ESCAPE_COMBO_L:
-            case ENTER_COMBO_R:
+
+};
+
+// game layers disable some combos
+bool combo_should_trigger(uint16_t combo_index,
+                          combo_t* combo,
+                          uint16_t keycode,
+                          keyrecord_t* record)
+{
+    if (layer_state_is(GAME2D_LYR) ||
+        layer_state_is(GAME3D_LYR))
+    {
+        switch (combo_index)
+        {
+            case HOME_CMB_R:
+            case MOUSE_CMB_L:
+            case MOUSE_CMB_R:
+            case ARROW_CMB_L:
+            case NMBR_CMB_R:
+            case ESC_CMB_L:
+            case ENTER_CMB_R:
                 return true;
-            default: return false;
+            default:
+                return false;
         }
     }
     return true;
 }
-// Shorten combo-term when in Game Layers for faster button-response
-uint16_t get_combo_term(uint16_t index, combo_t* combo) {
-    if (layer_state_is(GAME2D_LAYER) || layer_state_is(GAME3D_LAYER))
+
+// shorten combo-term when in game layers for faster button-response
+uint16_t get_combo_term(uint16_t index,
+                        combo_t* combo)
+{
+    if (layer_state_is(GAME2D_LYR) ||
+        layer_state_is(GAME3D_LYR))
+    {
         return 6;
+    }
     else
+    {
         return COMBO_TERM;
+    }
 }
-// Switching to non-alpha layers breaks capsword
-layer_state_t layer_state_set_user(layer_state_t state) {
-    switch (get_highest_layer(state)) {
-        case MOUSE_LAYER ... GAME3D_LAYER:
+
+// switching to non-alpha layers breaks capsword
+layer_state_t layer_state_set_user(layer_state_t state)
+{
+    switch (get_highest_layer(state))
+    {
+        case MOUSE_LYR_R ... GAME3D_LYR:
             caps_word_off();
             break;
-        default: break;
+        default:
+            break;
     }
     return state;
 }
+
 // "escape" breaks capsword, "space" does not
-bool caps_word_press_user(uint16_t keycode) {
-    switch (keycode) {
+bool caps_word_press_user(uint16_t keycode)
+{
+    switch (keycode)
+    {
         case KC_A ... KC_Z:
             add_weak_mods(MOD_BIT(KC_LEFT_SHIFT));
             return true;
@@ -185,160 +197,255 @@ bool caps_word_press_user(uint16_t keycode) {
             return true;
     }
 }
-// MOMENTARY_MOUSE_LAYER will activate before TAPPING_TERM if another key is pressed then released
-bool get_permissive_hold(uint16_t keycode, keyrecord_t* record) {
-    if (LT(MOMENTARY_MOUSE_LAYER, KC_SPC))
-        return true;
-    return false;
-}
-// MOMENTARY_NUMBER_LAYER will activate before TAPPING_TERM if another key is pressed
-bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t* record) {
-    if (LT(MOMENTARY_NUMBER_LAYER, KC_SPC))
-        return true;
-    return false;
-}
 
-// release_gate data and functions
-typedef enum {
+// rgate data and functions
+
+typedef enum
+{
     DECIDE,
     BLOCK,
     PASS,
     NONE
-} release_gate_state_t;
+} rgate_state_t;
 
-typedef struct {
-    release_gate_state_t state;
+typedef struct
+{
+    rgate_state_t state;
     uint16_t last_pressed;
-} release_gate_t;
+} rgate_t;
 
-static release_gate_t release_gate = {NONE, KC_NO};
+static rgate_t rgate =
+{
+    NONE,
+    KC_NO
+};
 
-inline void reset_release_gate(release_gate_t release_gate) {
-    release_gate.state = NONE;
-    release_gate.last_pressed = KC_NO;
+inline void reset_rgate(rgate_t rgate)
+{
+    rgate.state = NONE;
+    rgate.last_pressed = KC_NO;
     clear_keyboard();
 }
 
 // process custom keys
-bool process_record_user(uint16_t keycode, keyrecord_t* record) {
-    switch (keycode) {
+bool process_record_user(uint16_t keycode,
+                         keyrecord_t* record)
+{
+    switch (keycode)
+    {
         case KC_A ... KC_RGUI:
-            if (release_gate.state == NONE)
+            // rgate not used, stop evaluating ASAP
+            if (rgate.state == NONE)
+            {
                 return true;
-            if (record->event.pressed) {
-                if (release_gate.state == DECIDE) {
-                    if (release_gate.last_pressed == RELEASE_GATE)
-                        release_gate.state = BLOCK;
+            }
+            // rgate in use
+            else if (record->event.pressed)
+            {
+                if (rgate.state == DECIDE)
+                {
+                    if (rgate.last_pressed == RGATE)
+                    {
+                        rgate.state = BLOCK;
+                    }
                     else
-                        release_gate.state = PASS;
-                    release_gate.last_pressed = keycode;
+                    {
+                        rgate.state = PASS;
+                    }
+                    rgate.last_pressed = keycode;
                 }
-                else if (release_gate.state == BLOCK)
-                    release_gate.last_pressed = keycode;
+                else if (rgate.state == BLOCK)
+                {
+                    rgate.last_pressed = keycode;
+                }
                 return true;
             }
-            if (release_gate.state == DECIDE) {
-                if (release_gate.last_pressed == RELEASE_GATE)
-                    release_gate.state = PASS;
+            else if (rgate.state == DECIDE)
+            {
+                if (rgate.last_pressed == RGATE)
+                {
+                    rgate.state = PASS;
+                }
                 else
-                    reset_release_gate(release_gate);
+                {
+                    reset_rgate(rgate);
+                }
                 return false;
             }
-            if (release_gate.state == BLOCK) {
-                if (release_gate.last_pressed == keycode)
-                    release_gate.last_pressed = KC_NO;
+            else if (rgate.state == BLOCK)
+            {
+                if (rgate.last_pressed == keycode)
+                {
+                    rgate.last_pressed = KC_NO;
+                }
                 else
-                    reset_release_gate(release_gate);
+                {
+                    reset_rgate(rgate);
+                }
                 return false;
             }
-            if (release_gate.state == PASS && release_gate.last_pressed == keycode)
-                reset_release_gate(release_gate);
+            else if (rgate.state == PASS &&
+                rgate.last_pressed == keycode)
+            {
+                reset_rgate(rgate);
+            }
             return true;
 
-        case RELEASE_GATE:
-            if (record->event.pressed) {
-                release_gate.state = DECIDE;
-                release_gate.last_pressed = RELEASE_GATE;
+
+        case RGATE:
+            if (record->event.pressed)
+            {
+                rgate.state = DECIDE;
+                rgate.last_pressed = RGATE;
             }
-            else if (release_gate.state != BLOCK)
-                reset_release_gate(release_gate);
-            else if (release_gate.last_pressed == KC_NO)
-                release_gate.state = DECIDE;
+            else if (rgate.state != BLOCK)
+            {
+                reset_rgate(rgate);
+            }
+            else if (rgate.last_pressed == KC_NO)
+            {
+                rgate.state = DECIDE;
+            }
             else
-                release_gate.state = PASS;
+            {
+                rgate.state = PASS;
+            }
             return false;
 
+
         case LAYOUT_HOME:
-            if (record->event.pressed) {
+            if (record->event.pressed)
+            {
                 caps_word_off();
-                reset_release_gate(release_gate);
-                layer_move(ALPHA_LAYER);
+                reset_rgate(rgate);
+                layer_move(ALPHA_LYR);
             }
             return false;
 
         case CAPS_ON:
             if (record->event.pressed)
+            {
                 caps_word_on();
+            }
             return false;
 
-        default: return true;
+        default:
+            return true;
     }
 }
+
+
 // layers
-const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [ALPHA_LAYER] = LAYOUT_split_3x5_2( // ALPHA: alphabet, punctuation, editing
+
+#define HOLD_MOUSE_TAP_SPACE            LT(MOUSE_FROM_OTHER_LYR, KC_SPC)
+#define HOLD_NMBR_TAP_SPACE             LT(NMBR_FROM_OTHER_LYR,  KC_SPC)
+#define HOLD_ALPHA_TAP_SPACE_FROM_NMBR  LT(ALPHA_FROM_NMBR_LYR,  KC_SPC)
+#define HOLD_ALPHA_TAP_SPACE_FROM_MOUSE LT(ALPHA_FROM_MOUSE_LYR, KC_SPC)
+
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] =
+{
+    // alpha layer (home layer)
+    // - contains: alphabet, space, backspace, delete
+    [ALPHA_LYR] = LAYOUT_split_3x5_2(
         KC_X,    KC_C,    KC_H,    KC_B,    KC_Q,            KC_Z,    KC_Y,    KC_W,    KC_P,    KC_J,
         KC_A,    KC_S,    KC_R,    KC_T,    KC_COMMA,        KC_DOT,  KC_E,    KC_I,    KC_O,    KC_N,
         KC_V,    KC_F,    KC_L,    KC_D,    KC_QUOT,         KC_SCLN, KC_U,    KC_M,    KC_G,    KC_K,
-        KC_BSPC, LT(MOMENTARY_MOUSE_LAYER,  KC_SPC),         LT(MOMENTARY_NUMBER_LAYER, KC_SPC), KC_DEL),
-    [NUMBER_LAYER] = LAYOUT_split_3x5_2( // NUMBER: digits, navigation keys, and symbols
+                 KC_BSPC, HOLD_MOUSE_TAP_SPACE,              HOLD_NMBR_TAP_SPACE,       KC_DEL),
+    // number layer
+    // - contains: digits, arrow-keys, misc symbols, misc navigation
+    [NMBR_LYR] = LAYOUT_split_3x5_2(
         KC_1,    KC_2,    KC_3,    KC_4,    KC_5,            KC_6,    KC_7,    KC_8,    KC_9,    KC_0,
         KC_GRV,  KC_BSLS, KC_SLSH, KC_MINS, _______,         _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,
         _______, KC_LBRC, KC_RBRC, KC_EQL,  _______,         _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END,
-                                   _______, _______,         LT(MOMENTARY_ALPHA_LAYER, KC_SPC),  _______),
-    [MOUSE_LAYER] = LAYOUT_split_3x5_2( // MOUSE: Mouse and function keys
+                                   _______, _______,         HOLD_ALPHA_TAP_SPACE_FROM_NMBR,  _______),
+    // mouse layer
+    // - contains: function keys 1-14, printscreen, cursor direction/speed, scroll-wheel direction/speed,
+    //             left and right click
+    [MOUSE_LYR_R] = LAYOUT_split_3x5_2(
         KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,           KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,
         KC_PSCR, KC_ACL2, KC_ACL1, KC_ACL0, _______,         _______, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R,
         KC_F11,  KC_F12,  KC_F13,  KC_F14,  _______,         _______, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R,
-        _______, LT(MOMENTARY_MOUSEALPHA_LAYER, KC_SPC),     KC_BTN1, KC_BTN2),
-    [LEFT_NUMBER_LAYER] = LAYOUT_split_3x5_2( // LEFT_NUMBER
+        _______, HOLD_ALPHA_TAP_SPACE_FROM_MOUSE,            KC_BTN1, KC_BTN2),
+    // arrow layer
+    // - contains the navigation keys found in the number layer, but under the left hand
+    [ARROW_LYR] = LAYOUT_split_3x5_2(
         _______, _______, _______, _______, _______,         _______, _______, _______, _______, _______,
         KC_LEFT, KC_UP,   KC_DOWN, KC_RGHT, _______,         _______, _______, _______, _______, _______,
         KC_HOME, KC_PGUP, KC_PGDN, KC_END,  _______,         _______, _______, _______, _______, _______,
                                    _______, KC_SPC,          KC_SPC,  _______),
-    [LEFT_MOUSE_LAYER] = LAYOUT_split_3x5_2( // LEFT_MOUSE
+    // left mouse layer
+    // - contains the mouse keys found in the mouse layer, but under the left hand
+    [MOUSE_LYR_L] = LAYOUT_split_3x5_2(
         _______, _______, _______, _______, _______,         _______, _______, _______, _______, _______,
         KC_MS_L, KC_MS_U, KC_MS_D, KC_MS_R, _______,         _______, KC_ACL0, KC_ACL1, KC_ACL2, KC_PSCR,
         KC_WH_L, KC_WH_U, KC_WH_D, KC_WH_R, _______,         _______, _______, _______, _______, _______,
                                    KC_BTN2, KC_BTN1,         KC_SPC,  _______),
-    [GAME2D_LAYER] = LAYOUT_split_3x5_2( // GAME2D: Minimize time-variant features
+    // 2D game layer
+    // - same as alpha layer with the following exceptions:
+    //  - HOLD_MOUSE_TAP_SPACE is now just "space" (hold for space, tap for space)
+    //  - HOLD_NMBR_TAP_SPACE is now just "0" (hold for 0 tap for 0)
+    //  - combo-window is shortened for quicker response times
+    //  - only escape, enter, and layer-changing combos are enabled
+    [GAME2D_LYR] = LAYOUT_split_3x5_2(
         _______, _______, _______, _______, _______,         _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______,         _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______,         _______, _______, _______, _______, _______,
                                    _______, KC_SPC,          KC_0,    _______),
-    [GAME3D_LAYER] = LAYOUT_split_3x5_2( // GAME3D: Minimize time-variant features
+    // 3D game layer
+    // - like the 2D game layer but with mouse functionality under the right hand
+    [GAME3D_LYR] = LAYOUT_split_3x5_2(
         _______, _______, _______, _______, _______,         _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______,         _______, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R,
         _______, _______, _______, _______, _______,         _______, _______, KC_WH_D, KC_WH_U, _______,
                                    _______, KC_SPC,          KC_BTN1, KC_BTN2),
-    [MOMENTARY_ALPHA_LAYER] = LAYOUT_split_3x5_2( // MOMENTARY_ALPHA: Accessed from NUMBER_LAYER
+    // alpha-from-number layer
+    // - alpha layer momentarily accessed from number layer
+    [ALPHA_FROM_NMBR_LYR] = LAYOUT_split_3x5_2(
         KC_X,   KC_C,     KC_H,    KC_B,    KC_Q,            KC_Z,    KC_Y,    KC_W,    KC_P,    KC_J,
         KC_A,   KC_S,     KC_R,    KC_T,    _______,         _______, KC_E,    KC_I,    KC_O,    KC_N,
         KC_V,   KC_F,     KC_L,    KC_D,    _______,         _______, KC_U,    KC_M,    KC_G,    KC_K,
                                    _______, KC_SPC,          _______, _______),
-    [MOMENTARY_MOUSEALPHA_LAYER] = LAYOUT_split_3x5_2( // MOMENTARY_MOUSE_ALPHA: accessed from MOUSE_LAYER
+    // alpha-from-mouse layer
+    // - alpha layer momentarily accessed from mouse layer
+    [ALPHA_FROM_MOUSE_LYR] = LAYOUT_split_3x5_2(
         KC_X,   KC_C,     KC_H,    KC_B,    KC_Q,            KC_Z,    KC_Y,    KC_W,    KC_P,     KC_J,
         KC_A,   KC_S,     KC_R,    KC_T,    _______,         _______, KC_E,    KC_I,    KC_O,     KC_N,
         KC_V,   KC_F,     KC_L,    KC_D,    _______,         _______, KC_U,    KC_M,    KC_G,     KC_K,
-                                   _______, _______,         LT(MOMENTARY_NUMBER_LAYER, KC_SPC),  KC_DEL),
-    [MOMENTARY_NUMBER_LAYER] = LAYOUT_split_3x5_2( // MOMENTARY_NUMBER: accessed from ALPHA_LAYER
+                                   _______, _______,         HOLD_NMBR_TAP_SPACE,       KC_DEL),
+    // number-from-other layer
+    // - number layer momentarily accessed from alpha layer or alpha-from-mouse layer
+    [NMBR_FROM_OTHER_LYR] = LAYOUT_split_3x5_2(
         KC_1,    KC_2,    KC_3,    KC_4,    KC_5,            KC_6,    KC_7,    KC_8,    KC_9,    KC_0,
         KC_GRV,  KC_BSLS, KC_SLSH, KC_MINS, _______,         _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,
         _______, KC_LBRC, KC_RBRC, KC_EQL,  _______,         _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END,
                                    _______, KC_SPC,          _______, _______),
-    [MOMENTARY_MOUSE_LAYER] = LAYOUT_split_3x5_2( // MOMENTARY_MOUSE: accessed from ALPHA_LAYER
+    // mouse-from-other layer
+    // - mouse layer momentarily accessed from alpha layer or number layer
+    [MOUSE_FROM_OTHER_LYR] = LAYOUT_split_3x5_2(
         KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,           KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,
         KC_PSCR, KC_ACL2, KC_ACL1, KC_ACL0, _______,         _______, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R,
         KC_F11,  KC_F12,  KC_F13,  KC_F14,  _______,         _______, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R,
                                    _______, _______,         KC_BTN1, KC_BTN2),
 };
+
+// HOLD_MOUSE_TAP_SPACE will go to mouse layer before TAPPING_TERM elapses if another key is pressed then released
+bool get_permissive_hold(uint16_t keycode,
+                         keyrecord_t* record)
+{
+    if (HOLD_MOUSE_TAP_SPACE)
+    {
+        return true;
+    }
+    return false;
+}
+
+// HOLD_NMBR_TAP_SPACE will go to number layer before TAPPING_TERM elapses if another key is pressed
+bool get_hold_on_other_key_press(uint16_t keycode,
+                                 keyrecord_t* record)
+{
+    if (HOLD_NMBR_TAP_SPACE)
+    {
+        return true;
+    }
+    return false;
+}
