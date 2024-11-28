@@ -35,8 +35,8 @@ const uint16_t PROGMEM   nmbr_cmb_r[] = {KC_U,    KC_N,    COMBO_END};
 const uint16_t PROGMEM  mouse_cmb_l[] = {KC_V,    KC_D,    COMBO_END};
 const uint16_t PROGMEM  mouse_cmb_r[] = {KC_U,    KC_K,    COMBO_END};
 //                           2 . . 1 .          . 1 . . 2
-const uint16_t PROGMEM game3d_cmb_l[] = {KC_DOT,  KC_N,    COMBO_END};
-const uint16_t PROGMEM game2d_cmb_r[] = {KC_A,    KC_COMM, COMBO_END};
+const uint16_t PROGMEM game3d_cmb_l[] = {KC_A,    KC_COMM, COMBO_END};
+const uint16_t PROGMEM game2d_cmb_r[] = {KC_DOT,  KC_N,    COMBO_END};
 //                           . . . 3 2          2 3 . . .
 const uint16_t PROGMEM    esc_cmb_l[] = {KC_B,    KC_COMM, COMBO_END};
 const uint16_t PROGMEM  enter_cmb_r[] = {KC_DOT,  KC_Y,    COMBO_END};
