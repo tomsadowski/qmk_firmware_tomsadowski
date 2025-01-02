@@ -37,9 +37,6 @@ const uint16_t PROGMEM  numbe_cmb_r[] = {KC_U,    KC_N,    COMBO_END};
 //                           . . . 3 2          2 3 . . .
 const uint16_t PROGMEM    esc_cmb_l[] = {KC_B,    KC_COMM, COMBO_END};
 const uint16_t PROGMEM  enter_cmb_r[] = {KC_DOT,  KC_Y,    COMBO_END};
-//                           . . . 2 1          1 2 . . .
-const uint16_t PROGMEM  rgate_cmb_l[] = {KC_T,    KC_QUOT, COMBO_END};
-const uint16_t PROGMEM  rgate_cmb_r[] = {KC_E,    KC_SCLN, COMBO_END};
 
 enum combos
 {
@@ -63,14 +60,11 @@ enum combos
     LNAV1_CMB_L,   NUMBE_CMB_R,
     // . . . 3 2     2 3 . . .
     ESC_CMB_L,     ENTER_CMB_R,
-    // . . . 2 1     1 2 . . .
-    RGATE_CMB_L,   RGATE_CMB_R,
 };
 
 enum custom_keycodes
 {
-    RGATE = SAFE_RANGE,
-    LAYOUT_HOME,
+    LAYOUT_HOME = SAFE_RANGE,
     CAPS_ON
 };
 
@@ -127,9 +121,6 @@ combo_t key_combos[] =
     // 1 . . 1 .     . 1 . . 1
     [LNAV2_CMB_L]  = COMBO( lnav2_cmb_l, TO(LNAV2_LYR)),
     [MOUSE_CMB_R]  = COMBO( mouse_cmb_r, TO(MOUSE_LYR)),
-    // 3 . . . 3     3 . . . 3
-    [RGATE_CMB_L]  = COMBO( rgate_cmb_l, RGATE),
-    [RGATE_CMB_R]  = COMBO( rgate_cmb_r, RGATE),
     // 2 . . . 2     2 . . . 2
     [GAME3_CMB_L]  = COMBO( game3_cmb_l, TO(GAME3_LYR)),
     [GAME2_CMB_R]  = COMBO( game2_cmb_r, TO(GAME2_LYR)),
@@ -159,118 +150,23 @@ bool caps_word_press_user(uint16_t keycode)
     }
 }
 
-// rgate data and functions
-
-typedef enum
-{
-    DECIDE,
-    BLOCK,
-    PASS,
-    NONE
-} rgate_state_t;
-
-typedef struct
-{
-    rgate_state_t state;
-    uint16_t last_pressed;
-} rgate_t;
-
-static rgate_t rgate =
-{
-    NONE,
-    KC_NO
-};
-
-inline void reset_rgate(rgate_t rgate)
-{
-    rgate.state = NONE;
-    rgate.last_pressed = KC_NO;
-    clear_keyboard();
-}
-
 // process custom keys
 bool process_record_user(uint16_t keycode,
                          keyrecord_t* record)
 {
     switch (keycode)
     {
-        case KC_A ... KC_RGUI:
-            // rgate not used, stop evaluating ASAP
-            if (rgate.state == NONE)
-            {
-                return true;
-            }
-            // rgate in use
-            else if (record->event.pressed)
-            {
-                if (rgate.state == DECIDE)
-                {
-                    if (rgate.last_pressed == RGATE)
-                        rgate.state = BLOCK;
-                    else rgate.state = PASS;
-                    rgate.last_pressed = keycode;
-                }
-                else if (rgate.state == BLOCK)
-                {
-                    rgate.last_pressed = keycode;
-                }
-                return true;
-            }
-            else if (rgate.state == DECIDE)
-            {
-                if (rgate.last_pressed == RGATE)
-                    rgate.state = PASS;
-                else reset_rgate(rgate);
-                return false;
-            }
-            else if (rgate.state == BLOCK)
-            {
-                if (rgate.last_pressed == keycode)
-                    rgate.last_pressed = KC_NO;
-                else reset_rgate(rgate);
-                return false;
-            }
-            else if (rgate.state == PASS &&
-                rgate.last_pressed == keycode)
-            {
-                reset_rgate(rgate);
-            }
-            return true;
-
-        case RGATE:
-            if (record->event.pressed)
-            {
-                rgate.state = DECIDE;
-                rgate.last_pressed = RGATE;
-            }
-            else if (rgate.state != BLOCK)
-            {
-                reset_rgate(rgate);
-            }
-            else if (rgate.last_pressed == KC_NO)
-            {
-                rgate.state = DECIDE;
-            }
-            else
-            {
-                rgate.state = PASS;
-            }
-            return false;
-
         case LAYOUT_HOME:
             if (record->event.pressed)
             {
                 caps_word_off();
-                reset_rgate(rgate);
                 layer_move(ALPHA_LYR);
             }
             return false;
 
         case CAPS_ON:
             if (record->event.pressed)
-            {
                 caps_word_on();
-            }
             return false;
 
         default:
