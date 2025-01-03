@@ -1,37 +1,43 @@
-# tomsadowski keymap
+# tomsadowski keymap for pearbear
 
-There are 3 layers: Alpha Layer, Mouse Layer, and Number Layer. From any of those layers, the other two layers can be momentarily accessed by holding either of the space buttons. The visuals below should clarify this.   
+## alpha layer  
+![alpha_graph](pics/alpha_graph.png)  
 
----  
+## mouse layer  
+note: since holding down the left-click button is a common use-case, you must first access the Alpha Layer with the left thumb before accessing the Number Layer with the right thumb.  
+![mouse_graph](pics/mouse_graph.png)  
 
-![alpha_layer_graph](doc/alpha_graph.jpg)  
+## number layer  
+![number_graph](pics/number_graph.png)  
 
----  
+## combos  
+the caps-lock combo only turns caps-lock on. Caps-lock is turned off when a modifier or layer-switching combo is pressed.   
+![combos](pics/combos.png)  
 
-![mouse_layer_graph](doc/mouse_graph.jpg)  
 
-Note: Since holding down the left-click button is a common use case, you must first access the Alpha Layer with the left thumb before accessing the Number Layer with the right thumb.  
+# extra layers   
 
----  
+## left navigation 1 layer  
+contains the navigation keys found in the number layer, but under the left hand.
+![lnav1_layer](pics/lnav1.png)   
 
-![number_layer_graph](doc/number_graph.jpg)  
+## left navigation 2 layer  
+contains the mouse keys found in the mouse layer, but under the left hand.
+![lnav2_layer](pics/lnav2.png)   
 
-## Combos  
+## 2D game layer   
+same as alpha layer with the following exceptions:
+* combos deactivated
+* KC_SPACE replaces HOLD_MOUSE_TAP_SPACE
+* KC_0 replaces HOLD_NUMBE_TAP_SPACE
+* KC_ESCAPE replaces KC_QUOTE
+* KC_ENTER replaces KC_SCLN
+![game_2d_layer](pics/game_2d.png)  
 
-The caps-lock combo only turns caps-lock on. Caps-lock is turned off when a modifier or mode-switching combo is pressed.   
-
-![combos](doc/combos.jpg)  
-
-## Release Gate
-
-While the Release Gate is held, the keyboard will not send key-released signals to the computer. Once you release a key without the Release Gate held, all previously withheld release signals will be sent.     
-
-![release_gate_state_machine](doc/release_gate_state_machine.jpg)  
-
-## Lefty Layers   
-
-![lefty_layers](doc/lefty_layers.jpg)   
-
-## Game Layers   
-
-![game_layers](doc/game_layers.jpg)  
+## 3D game layer   
+same as alpha layer with the following exceptions:
+* combos deactivated
+* KC_SPACE replaces HOLD_MOUSE_TAP_SPACE
+* KC_BTN1, KC_BTN2, replaces HOLD_NUMBE_TAP_SPACE, KC_DEL respectively
+* KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R replaces KC_E, KC_I, KC_O, KC_N respectively
+![game_3d_layer](pics/game_2d.png)  
