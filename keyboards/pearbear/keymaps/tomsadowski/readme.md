@@ -40,4 +40,4 @@ same as alpha layer with the following exceptions:
 * KC_SPACE replaces HOLD_MOUSE_TAP_SPACE
 * KC_BTN1, KC_BTN2, replaces HOLD_NUMBE_TAP_SPACE, KC_DEL respectively
 * KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R replaces KC_E, KC_I, KC_O, KC_N respectively
-![game_3d_layer](pics/game_2d.png)  
+![game_3d_layer](pics/game_3d.png)  
